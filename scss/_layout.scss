@@ -1,12 +1,16 @@
 @use "tokens" as *;
 
 .site-header {
+  position: relative;
   color: #fff;
-  text-shadow: 0 1px 1px rgba(31, 71, 51, 0.35);
+  text-shadow: 0 1px 1px rgba(29, 69, 50, 0.4);
   background-color: var(--color-leaf);
+  // Jade wash: a carved window-lattice pattern over a soft two-way gradient
   background-image:
-    radial-gradient(ellipse 60% 140% at 18% 0, rgba(215, 240, 190, 0.16), transparent 70%),
-    var(--gradient-leaf);
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='36' height='36' viewBox='0 0 36 36'%3E%3Cpath d='M0 18h10v-8h16v16H10v-8M18 0v10M18 26v10M26 18h10' fill='none' stroke='%23fff' stroke-opacity='.1'/%3E%3C/svg%3E"),
+    radial-gradient(ellipse 45% 160% at 50% -20%, rgba(232, 245, 205, 0.32), transparent 70%),
+    linear-gradient(100deg, #3b8159 0%, #4f9a70 50%, #3b8159 100%);
+  box-shadow: inset 0 3px 0 var(--color-gold);
 
   &__inner {
     display: flex;
@@ -36,7 +40,9 @@
     height: 44px;
     border-radius: 50%;
     background-color: var(--color-sheet);
-    box-shadow: 0 0 0 2px var(--color-gold);
+    box-shadow:
+      0 0 0 2px var(--color-gold),
+      0 6px 12px -6px rgba(29, 69, 50, 0.8);
   }
 
   &__brand {
@@ -98,17 +104,21 @@
   display: grid;
   place-items: center;
   flex-shrink: 0;
-  width: 44px;
-  height: 44px;
-  border: 1px solid rgba(255, 255, 255, 0.45);
+  width: 46px;
+  height: 46px;
   border-radius: 50%;
+  color: var(--color-ink);
+  text-shadow: none;
+  background-color: var(--color-sheet);
+  box-shadow: 0 6px 12px -6px rgba(29, 69, 50, 0.8);
   transition:
     color var(--transition),
-    border-color var(--transition);
+    background-color var(--transition);
 
+  // Darkens on hover, like Teaboom's cart controls
   @include hover {
     color: var(--color-gold);
-    border-color: var(--color-gold);
+    background-color: var(--color-forest);
   }
 
   &__count {
@@ -122,8 +132,9 @@
     font-weight: 700;
     line-height: 20px;
     text-align: center;
-    color: var(--color-ink);
+    color: var(--color-forest);
     background-color: var(--color-gold);
+    box-shadow: 0 0 0 2px var(--color-leaf);
     font-variant-numeric: tabular-nums;
   }
 

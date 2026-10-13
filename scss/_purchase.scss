@@ -214,11 +214,11 @@
   // Same inversion Teaboom uses on its cart controls
   @include hover {
     color: var(--color-gold);
-    background-color: var(--color-leaf);
-    background-image: var(--gradient-leaf);
+    background-color: var(--color-forest);
+    background-image: var(--gradient-forest);
     box-shadow:
-      0 3px 0 var(--color-leaf-deep),
-      0 14px 20px -12px rgba(31, 59, 45, 0.8);
+      0 3px 0 #12301f,
+      0 14px 20px -12px rgba(29, 69, 50, 0.9);
   }
 
   &:active {
