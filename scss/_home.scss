@@ -1,0 +1,690 @@
+@use "tokens" as *;
+
+.hero {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  border-bottom: 1px solid var(--color-line);
+  background-image: linear-gradient(180deg, rgba(255, 253, 247, 0.85), transparent);
+
+  // Oversized calligraphy watermark
+  &::before {
+    content: "茶" / "";
+    position: absolute;
+    top: -40px;
+    left: 38%;
+    z-index: -1;
+    font-family: "Songti SC", "STSong", "SimSun", serif;
+    font-size: 300px;
+    line-height: 1;
+    color: var(--color-wood);
+    opacity: 0.06;
+
+    @include desktop {
+      font-size: 460px;
+    }
+  }
+
+  &__inner {
+    display: grid;
+    gap: 32px;
+    padding-block: 32px 40px;
+
+    @include tablet {
+      grid-template-columns: minmax(0, 6fr) minmax(0, 5fr);
+      align-items: center;
+      gap: 32px;
+      padding-block: 48px;
+    }
+
+    @include desktop {
+      grid-template-columns: minmax(0, 1fr) 440px;
+      gap: 80px;
+      padding-block: 72px 80px;
+    }
+  }
+
+  // Quiet overline: a gold stroke followed by small caps text
+  &__eyebrow {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--color-jade);
+
+    &::before {
+      content: "";
+      flex-shrink: 0;
+      width: 32px;
+      height: 2px;
+      border-radius: 1px;
+      background-color: var(--color-gold-deep);
+    }
+  }
+
+  &__title {
+    margin-top: 16px;
+    font-family: var(--font-display);
+    font-size: 36px;
+    font-weight: 600;
+    line-height: 1.12;
+    color: var(--color-ink);
+    text-wrap: balance;
+
+    @include tablet {
+      font-size: 42px;
+    }
+
+    @include desktop {
+      font-size: 64px;
+    }
+  }
+
+  &__lead {
+    max-width: 52ch;
+    margin-top: 18px;
+    font-size: 16px;
+
+    @include desktop {
+      font-size: 17px;
+    }
+  }
+
+  &__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 28px;
+  }
+
+  &__feature {
+    position: relative;
+    display: block;
+    width: min(100%, 360px);
+    margin-inline: auto;
+    padding-bottom: 44px;
+    text-decoration: none;
+
+    @include tablet {
+      width: 100%;
+    }
+  }
+
+  &__tray {
+    display: block;
+    padding: 12px;
+    border-radius: var(--radius-lg);
+    background-color: var(--color-wood);
+    background-image:
+      repeating-linear-gradient(
+        91deg,
+        rgba(255, 255, 255, 0.07) 0 2px,
+        transparent 2px 9px,
+        rgba(0, 0, 0, 0.09) 9px 11px,
+        transparent 11px 27px
+      ),
+      linear-gradient(140deg, #b98d5c, var(--color-wood) 42%, var(--color-wood-dark));
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.35),
+      inset 0 -2px 0 rgba(0, 0, 0, 0.35),
+      0 30px 44px -26px rgba(63, 41, 23, 0.75);
+    transform: rotate(-2deg);
+    transition: transform 0.35s ease;
+
+    @include tablet {
+      padding: 16px;
+    }
+  }
+
+  &__feature:hover &__tray {
+    transform: rotate(0deg);
+  }
+
+  &__sheet {
+    display: block;
+    border-radius: 4px;
+    background-color: var(--color-sheet);
+    box-shadow:
+      0 0 0 1px rgba(40, 24, 12, 0.7),
+      0 0 0 4px rgba(40, 24, 12, 0.22),
+      inset 0 0 40px rgba(122, 84, 51, 0.12);
+    overflow: hidden;
+  }
+
+  &__image {
+    width: 100%;
+    aspect-ratio: 1;
+    object-fit: cover;
+    mix-blend-mode: multiply;
+  }
+
+  &__label {
+    position: absolute;
+    right: 12px;
+    bottom: 0;
+    left: 12px;
+    display: grid;
+    gap: 2px;
+    padding: 12px 16px;
+    border: 1px solid var(--color-line);
+    border-left: 4px solid var(--color-sale);
+    border-radius: var(--radius);
+    background-color: var(--color-surface);
+    box-shadow: var(--shadow-card);
+
+    @include desktop {
+      right: auto;
+      left: -32px;
+      min-width: 260px;
+    }
+  }
+
+  &__label-name {
+    font-family: var(--font-display);
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 1.2;
+    color: var(--color-ink);
+  }
+
+  &__label-price {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--color-sale);
+  }
+
+  &__label-more {
+    font-size: 12px;
+    color: var(--color-muted);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+}
+
+.features {
+  margin-top: 24px;
+
+  @include desktop {
+    margin-top: -28px;
+  }
+
+  &__list {
+    position: relative;
+    display: grid;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    border: 1px solid var(--color-line);
+    border-radius: var(--radius-lg);
+    background-color: var(--color-surface);
+    box-shadow: var(--shadow-card);
+
+    @include tablet {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+  }
+
+  &__item {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 16px 20px;
+
+    & + & {
+      border-top: 1px dashed var(--color-line);
+
+      @include tablet {
+        border-top: 0;
+        border-left: 1px dashed var(--color-line);
+      }
+    }
+  }
+
+  &__icon {
+    flex-shrink: 0;
+    color: var(--color-jade);
+  }
+
+  &__text {
+    font-size: 13px;
+    line-height: 1.4;
+    color: var(--color-muted);
+  }
+
+  &__title {
+    display: block;
+    font-family: var(--font-display);
+    font-size: 16px;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--color-ink);
+  }
+}
+
+.section {
+  padding-top: 48px;
+
+  @include desktop {
+    padding-top: 80px;
+  }
+
+  &:last-child {
+    padding-bottom: 56px;
+
+    @include desktop {
+      padding-bottom: 96px;
+    }
+  }
+
+  &__title {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 24px;
+    font-family: var(--font-display);
+    font-size: 28px;
+    font-weight: 600;
+    line-height: 1.2;
+    color: var(--color-ink);
+
+    @include desktop {
+      margin-bottom: 32px;
+      font-size: 36px;
+    }
+
+    &::after {
+      content: "";
+      flex: 1;
+      height: 1px;
+      background: linear-gradient(90deg, var(--color-wood-light), transparent);
+    }
+  }
+}
+
+// Categories: a bento grid of paper cards, the first one featured
+.categories {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+
+  @include tablet {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  @include desktop {
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+    gap: 16px;
+  }
+
+  &__item {
+    display: grid;
+
+    &--featured {
+      grid-column: span 2;
+
+      @include tablet {
+        grid-row: span 2;
+      }
+    }
+  }
+
+  &__link {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 14px 12px 14px;
+    border: 1px solid var(--color-line);
+    border-bottom: 3px solid var(--color-wood-light);
+    border-radius: var(--radius-lg);
+    text-decoration: none;
+    background-color: var(--color-sheet);
+    background-image: radial-gradient(circle at 50% 38%, #fff 0, rgba(255, 255, 255, 0) 68%);
+    overflow: hidden;
+    transition:
+      transform var(--transition),
+      border-color var(--transition),
+      box-shadow var(--transition);
+
+    @include hover {
+      border-color: var(--color-wood);
+      box-shadow: var(--shadow-card);
+      transform: translateY(-4px);
+    }
+  }
+
+  &__media {
+    display: block;
+    width: 76%;
+    aspect-ratio: 1;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      // Lets the white photo backdrop melt into the paper card
+      mix-blend-mode: multiply;
+      transition: transform 0.35s ease;
+    }
+  }
+
+  &__link:hover &__media img {
+    transform: scale(1.08) rotate(-3deg);
+  }
+
+  &__name {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin-top: auto;
+    padding-top: 8px;
+    font-family: var(--font-display);
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 1.25;
+    text-align: center;
+    color: var(--color-ink);
+    transition: color var(--transition);
+
+    @include desktop {
+      font-size: 17px;
+    }
+  }
+
+  &__link:hover &__name {
+    color: var(--color-sale);
+  }
+
+  // Featured card: a row on phones, a tall card from tablet up
+  &__item--featured &__link {
+    flex-direction: row;
+    gap: 16px;
+    padding: 16px 20px;
+    background-image:
+      radial-gradient(circle at 26% 50%, #fff 0, rgba(255, 255, 255, 0) 55%),
+      linear-gradient(135deg, rgba(62, 107, 82, 0.16), rgba(62, 107, 82, 0) 60%);
+
+    @include tablet {
+      flex-direction: column;
+      gap: 0;
+      padding: 24px 20px 22px;
+      background-image:
+        radial-gradient(circle at 50% 42%, #fff 0, rgba(255, 255, 255, 0) 62%),
+        linear-gradient(160deg, rgba(62, 107, 82, 0.18), rgba(62, 107, 82, 0) 55%);
+    }
+
+    // Cinnabar seal in the corner
+    &::before {
+      content: "茶" / "";
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      display: grid;
+      place-items: center;
+      width: 30px;
+      height: 30px;
+      border-radius: 4px;
+      font-size: 18px;
+      line-height: 1;
+      color: #fff;
+      background-color: var(--color-sale);
+      box-shadow: inset 0 0 0 2px rgba(255, 255, 255, 0.35);
+      transform: rotate(4deg);
+    }
+  }
+
+  &__item--featured &__media {
+    flex-shrink: 0;
+    width: 42%;
+
+    @include tablet {
+      width: 86%;
+      margin-block: auto;
+    }
+  }
+
+  &__item--featured &__name {
+    margin-top: 0;
+    padding-top: 0;
+    font-size: 26px;
+    font-weight: 600;
+    text-align: left;
+
+    @include tablet {
+      margin-top: 0;
+      font-size: 30px;
+    }
+
+    // Arrow that slides on hover
+    &::after {
+      content: "→";
+      font-family: var(--font-body);
+      font-size: 0.8em;
+      color: var(--color-wood-light);
+      transition: transform var(--transition);
+    }
+  }
+
+  &__item--featured &__link:hover &__name::after {
+    transform: translateX(6px);
+  }
+}
+
+.catalog {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+
+  @include from(768px) {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 16px;
+  }
+
+  @include desktop {
+    gap: 24px;
+  }
+
+  &__item {
+    display: grid;
+  }
+}
+
+.tile {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  padding: 10px;
+  overflow-wrap: anywhere;
+  hyphens: auto;
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-lg);
+  background-color: var(--color-surface);
+  transition:
+    transform var(--transition),
+    box-shadow var(--transition),
+    border-color var(--transition);
+
+  @include desktop {
+    padding: 16px;
+  }
+
+  @include hover {
+    border-color: var(--color-wood-light);
+    box-shadow: var(--shadow-card);
+    transform: translateY(-4px);
+  }
+
+  &__media {
+    display: block;
+    border-radius: var(--radius);
+    background-color: #fff;
+    overflow: hidden;
+  }
+
+  &__image {
+    width: 100%;
+    aspect-ratio: 1;
+    padding: 6%;
+    object-fit: contain;
+  }
+
+  &__badge {
+    position: absolute;
+    top: 18px;
+    left: 18px;
+    padding: 0 8px;
+    border-radius: 100px;
+    font-family: var(--font-display);
+    font-size: 14px;
+    line-height: 24px;
+    color: #fff;
+    background-color: var(--color-sale);
+
+    @include desktop {
+      top: 24px;
+      left: 24px;
+    }
+  }
+
+  &__category {
+    margin-top: 12px;
+    font-size: 11px;
+    font-weight: 700;
+    line-height: 1.4;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: var(--color-jade);
+
+    @include hover {
+      color: var(--color-sale);
+    }
+  }
+
+  &__title {
+    margin: 6px 0 0;
+    font-family: var(--font-display);
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 1.3;
+    color: var(--color-ink);
+
+    @include desktop {
+      font-size: 18px;
+    }
+  }
+
+  &__link {
+    text-decoration: none;
+    transition: color var(--transition);
+
+    @include hover {
+      color: var(--color-sale);
+    }
+  }
+
+  &__price {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 0 8px;
+    margin-top: auto;
+    padding-top: 12px;
+    font-variant-numeric: tabular-nums;
+  }
+
+  &__unit {
+    flex-basis: 100%;
+    font-size: 12px;
+    color: var(--color-muted);
+  }
+
+  &__current {
+    font-family: var(--font-display);
+    font-size: 22px;
+    font-weight: 500;
+    line-height: 1.3;
+    color: var(--color-ink);
+    white-space: nowrap;
+  }
+
+  &__price--sale &__current {
+    color: var(--color-sale);
+  }
+
+  &__old {
+    font-size: 13px;
+    color: var(--color-muted);
+    white-space: nowrap;
+  }
+
+  .button {
+    margin-top: 12px;
+  }
+}
+
+.about {
+  display: grid;
+  gap: 28px;
+
+  @include desktop {
+    grid-template-columns: minmax(0, 1fr) 400px;
+    align-items: center;
+    gap: 80px;
+  }
+
+  &__text p {
+    max-width: 64ch;
+
+    & + p {
+      margin-top: 12px;
+    }
+  }
+
+  // A hanging scroll: wooden rods above and below the paper
+  &__quote {
+    position: relative;
+    margin: 0;
+    padding: 36px 28px;
+    border-block: 8px solid var(--color-wood);
+    border-radius: 4px;
+    text-align: center;
+    background-color: var(--color-sheet);
+    box-shadow: var(--shadow-card);
+  }
+
+  &__quote-text {
+    font-family: var(--font-display);
+    font-size: 26px;
+    font-weight: 500;
+    line-height: 1.3;
+    color: var(--color-ink);
+    text-wrap: balance;
+  }
+
+  &__quote-source {
+    display: inline-block;
+    margin-top: 18px;
+    padding: 2px 10px;
+    border-radius: 3px;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: #fff;
+    background-color: var(--color-sale);
+    transform: rotate(-2deg);
+  }
+}

@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Чайный Бум — интернет-магазин чая и посуды</title>
+  <meta name="description" content="Интернет-магазин чая «Чайный Бум»: зелёные, красные, белые, жёлтые чаи, улуны и пуэры, кофе, сладости и посуда.">
+  <meta name="theme-color" content="#1f3b2d">
+
+  <link rel="icon" href="img/logo.png" type="image/png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&family=Oswald:wght@400;500;600&display=swap">
+  <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container site-header__inner">
+      <a class="site-header__logo" href="home.html" aria-label="Чайный Бум — на главную">
+        <span class="site-header__mark"><img src="img/logo.png" width="40" height="40" alt=""></span>
+        <span class="site-header__brand">
+          <span class="site-header__name">Чайный Бум</span>
+          <span class="site-header__tagline">Интернет-магазин чая и посуды</span>
+        </span>
+      </a>
+      <div class="site-header__contacts">
+        <a class="site-header__phone" href="tel:+74951201551">+7 (495) 120-15-51</a>
+        <span class="site-header__hours">пн–пт 10:00–19:00, сб–вс 12:00–16:00</span>
+      </div>
+      <a class="cart-indicator" href="https://teaboom.ru/cart" data-cart>
+        <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" focusable="false">
+          <path d="M3 4h2.2l2.3 10.2a1 1 0 0 0 1 .8h8.9a1 1 0 0 0 1-.8L20 7.5H6.4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="9.5" cy="19" r="1.5" fill="currentColor"/>
+          <circle cx="17" cy="19" r="1.5" fill="currentColor"/>
+        </svg>
+        <span class="visually-hidden">Корзина, товаров:</span>
+        <span class="cart-indicator__count" data-cart-count>0</span>
+      </a>
+    </div>
+    <nav class="site-nav" aria-label="Основная навигация">
+      <ul class="container site-nav__list">
+        <li><a class="site-nav__link" href="home.html" aria-current="page">Главная</a></li>
+        <li><a class="site-nav__link" href="https://teaboom.ru/category-root">Каталог</a></li>
+        <li><a class="site-nav__link" href="https://teaboom.ru/category-podarki">Подарки</a></li>
+        <li><a class="site-nav__link" href="https://teaboom.ru/pricelist">Прайслист</a></li>
+        <li><a class="site-nav__link" href="https://teaboom.ru/shop_reviews/">Отзывы</a></li>
+        <li><a class="site-nav__link" href="https://teaboom.ru/contact">Контакты</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="container hero__inner">
+        <div class="hero__content">
+          <p class="hero__eyebrow">Интернет-магазин чая в Москве</p>
+          <h1 class="hero__title" id="hero-title">Чай с собственных высокогорных плантаций</h1>
+          <p class="hero__lead">
+            Зелёные, красные, белые и жёлтые чаи, всё многообразие улунов и, конечно же, пуэры —
+            тщательно отобранные, правильно упакованные и доставленные в кратчайшие сроки.
+          </p>
+          <div class="hero__actions">
+            <a class="button" href="https://teaboom.ru/category-root">В каталог</a>
+            <a class="button button--ghost" href="#recommended">Рекомендуем</a>
+          </div>
+        </div>
+
+        <a class="hero__feature" href="index.html">
+          <span class="hero__tray">
+            <picture class="hero__sheet">
+              <source type="image/webp" srcset="img/ananasovyj-ulun-560.webp 560w, img/ananasovyj-ulun-960.webp 960w"
+                      sizes="(min-width: 1024px) 440px, (min-width: 640px) 44vw, 80vw">
+              <img class="hero__image" src="img/ananasovyj-ulun-960.jpg" width="960" height="960" fetchpriority="high"
+                   alt="Ананасовый улун: скрученные изумрудные листья с цукатами">
+            </picture>
+          </span>
+          <span class="hero__label">
+            <span class="hero__label-name">Ананасовый улун</span>
+            <span class="hero__label-price">от 326,40 ₽ за 100 г</span>
+            <span class="hero__label-more">Смотреть карточку товара</span>
+          </span>
+        </a>
+      </div>
+    </section>
+
+    <section class="container features" aria-label="Преимущества магазина">
+      <ul class="features__list">
+        <li class="features__item">
+          <svg class="features__icon" viewBox="0 0 32 32" width="32" height="32" aria-hidden="true" focusable="false">
+            <path d="M2 8h17v14H2zM19 13h6l5 5v4h-11z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+            <circle cx="9" cy="23" r="3" fill="var(--color-surface)" stroke="currentColor" stroke-width="2"/>
+            <circle cx="24" cy="23" r="3" fill="var(--color-surface)" stroke="currentColor" stroke-width="2"/>
+          </svg>
+          <p class="features__text"><b class="features__title">Бесплатная доставка</b> при заказе от 3500 ₽</p>
+        </li>
+        <li class="features__item">
+          <svg class="features__icon" viewBox="0 0 32 32" width="32" height="32" aria-hidden="true" focusable="false">
+            <path d="M4 4h12l12 12-12 12L4 16z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+            <circle cx="11" cy="11" r="2.2" fill="currentColor"/>
+          </svg>
+          <p class="features__text"><b class="features__title">Акции и скидки</b> множество скидок каждый день</p>
+        </li>
+        <li class="features__item">
+          <svg class="features__icon" viewBox="0 0 32 32" width="32" height="32" aria-hidden="true" focusable="false">
+            <path d="M16 3l11 4v8c0 7-4.5 11.5-11 14C9.5 26.5 5 22 5 15V7z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+            <path d="M11 16l4 4 7-8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <p class="features__text"><b class="features__title">Безопасные платежи</b> через ЮKassa</p>
+        </li>
+      </ul>
+    </section>
+
+    <section class="container section" aria-labelledby="categories-title">
+      <h2 class="section__title" id="categories-title">Категории</h2>
+      <ul class="categories">
+          <li class="categories__item categories__item--featured">
+            <a class="categories__link" href="https://teaboom.ru/category-zelenyj-chaj">
+              <span class="categories__media"><img src="img/categories/zelenyj-chaj.webp" width="480" height="353" loading="lazy" alt=""></span>
+              <span class="categories__name">Зеленый чай</span>
+            </a>
+          </li>
+          <li class="categories__item">
+            <a class="categories__link" href="https://teaboom.ru/category-krasnyj-chaj">
+              <span class="categories__media"><img src="img/categories/krasnyj-chaj.webp" width="160" height="160" loading="lazy" alt=""></span>
+              <span class="categories__name">Красный чай</span>
+            </a>
+          </li>
+          <li class="categories__item">
+            <a class="categories__link" href="https://teaboom.ru/category-ulun">
+              <span class="categories__media"><img src="img/categories/ulun.webp" width="160" height="160" loading="lazy" alt=""></span>
+              <span class="categories__name">Улун</span>
+            </a>
+          </li>
+          <li class="categories__item">
+            <a class="categories__link" href="https://teaboom.ru/category-puer">
+              <span class="categories__media"><img src="img/categories/puer.webp" width="160" height="160" loading="lazy" alt=""></span>
+              <span class="categories__name">Пуэр</span>
+            </a>
+          </li>
+          <li class="categories__item">
+            <a class="categories__link" href="https://teaboom.ru/category-belyj-chaj">
+              <span class="categories__media"><img src="img/categories/belyj-chaj.webp" width="160" height="160" loading="lazy" alt=""></span>
+              <span class="categories__name">Белый чай</span>
+            </a>
+          </li>
+          <li class="categories__item">
+            <a class="categories__link" href="https://teaboom.ru/category-chernyy_tea">
+              <span class="categories__media"><img src="img/categories/chernyj-chaj.webp" width="160" height="160" loading="lazy" alt=""></span>
+              <span class="categories__name">Черный чай</span>
+            </a>
+          </li>
+          <li class="categories__item">
+            <a class="categories__link" href="https://teaboom.ru/category-kofe">
+              <span class="categories__media"><img src="img/categories/kofe.webp" width="160" height="160" loading="lazy" alt=""></span>
+              <span class="categories__name">Кофе</span>
+            </a>
+          </li>
+          <li class="categories__item">
+            <a class="categories__link" href="https://teaboom.ru/category-sladosti">
+              <span class="categories__media"><img src="img/categories/sladosti.webp" width="160" height="160" loading="lazy" alt=""></span>
+              <span class="categories__name">Сладости</span>
+            </a>
+          </li>
+          <li class="categories__item">
+            <a class="categories__link" href="https://teaboom.ru/category-posuda-i-aksessuary">
+              <span class="categories__media"><img src="img/categories/posuda.webp" width="160" height="160" loading="lazy" alt=""></span>
+              <span class="categories__name">Посуда и аксессуары</span>
+            </a>
+          </li>
+      </ul>
+    </section>
+
+    <section class="container section" id="recommended" aria-labelledby="recommended-title">
+      <h2 class="section__title" id="recommended-title">Рекомендуем</h2>
+      <ul class="catalog">
+          <li class="catalog__item">
+            <article class="tile">
+              <a class="tile__media" href="https://teaboom.ru/product/chaj-zhenshen-ulun" tabindex="-1" aria-hidden="true">
+                <img class="tile__image" src="img/products/zhenshen-ulun.webp" width="480" height="480" loading="lazy" alt="">
+              </a>
+              <a class="tile__category" href="https://teaboom.ru/category-kitajskij-svetlyj-ulun">Китайский светлый улун</a>
+              <h3 class="tile__title"><a class="tile__link" href="https://teaboom.ru/product/chaj-zhenshen-ulun">Женьшень улун</a></h3>
+              <p class="tile__price">
+                <span class="tile__unit">100 г</span>
+                <span class="tile__current">325 ₽</span>
+              </p>
+              <button class="button button--small" type="button" data-add-to-cart>
+                <span data-add-to-cart-label>В корзину</span>
+              </button>
+            </article>
+          </li>
+          <li class="catalog__item">
+            <article class="tile">
+              <a class="tile__media" href="https://teaboom.ru/product/te-guan-letnii" tabindex="-1" aria-hidden="true">
+                <img class="tile__image" src="img/products/te-guan-in-letnij.webp" width="480" height="480" loading="lazy" alt="">
+              </a>
+              <span class="tile__badge" aria-hidden="true">−4%</span>
+              <a class="tile__category" href="https://teaboom.ru/category-kitajskij-svetlyj-ulun">Китайский светлый улун</a>
+              <h3 class="tile__title"><a class="tile__link" href="https://teaboom.ru/product/te-guan-letnii">Те Гуань Инь (Летний)</a></h3>
+              <p class="tile__price tile__price--sale">
+                <span class="tile__unit">100 г</span>
+                <span class="tile__current">307,80 ₽</span>
+                <span class="visually-hidden">Старая цена:</span>
+                <s class="tile__old">321,80 ₽</s>
+              </p>
+              <button class="button button--small" type="button" data-add-to-cart>
+                <span data-add-to-cart-label>В корзину</span>
+              </button>
+            </article>
+          </li>
+          <li class="catalog__item">
+            <article class="tile">
+              <a class="tile__media" href="https://teaboom.ru/product/chaj-zelenyj-aromatizirovannyj-malina-i-miata" tabindex="-1" aria-hidden="true">
+                <img class="tile__image" src="img/products/malina-i-myata.webp" width="480" height="480" loading="lazy" alt="">
+              </a>
+              <span class="tile__badge" aria-hidden="true">−3%</span>
+              <a class="tile__category" href="https://teaboom.ru/category-aromatizirovannyj-chaj-zelenyy">Ароматизированный зеленый чай</a>
+              <h3 class="tile__title"><a class="tile__link" href="https://teaboom.ru/product/chaj-zelenyj-aromatizirovannyj-malina-i-miata">Чай зеленый ароматизированный «Малина и Мята»</a></h3>
+              <p class="tile__price tile__price--sale">
+                <span class="tile__unit">100 г</span>
+                <span class="tile__current">348,60 ₽</span>
+                <span class="visually-hidden">Старая цена:</span>
+                <s class="tile__old">357,80 ₽</s>
+              </p>
+              <button class="button button--small" type="button" data-add-to-cart>
+                <span data-add-to-cart-label>В корзину</span>
+              </button>
+            </article>
+          </li>
+          <li class="catalog__item">
+            <article class="tile">
+              <a class="tile__media" href="https://teaboom.ru/product/chaj-chyornyj-aromatizirovannyj-zemlyanika-so-slivkami" tabindex="-1" aria-hidden="true">
+                <img class="tile__image" src="img/products/zemlyanika-so-slivkami.webp" width="480" height="480" loading="lazy" alt="">
+              </a>
+              <a class="tile__category" href="https://teaboom.ru/category-aromatizirovannyj-chaj">Ароматизированный черный чай</a>
+              <h3 class="tile__title"><a class="tile__link" href="https://teaboom.ru/product/chaj-chyornyj-aromatizirovannyj-zemlyanika-so-slivkami">Чай чёрный ароматизированный «Земляника со сливками»</a></h3>
+              <p class="tile__price">
+                <span class="tile__unit">100 г</span>
+                <span class="tile__current">396,90 ₽</span>
+              </p>
+              <button class="button button--small" type="button" data-add-to-cart>
+                <span data-add-to-cart-label>В корзину</span>
+              </button>
+            </article>
+          </li>
+          <li class="catalog__item">
+            <article class="tile">
+              <a class="tile__media" href="https://teaboom.ru/product/chaj-chyornyj-aromatizirovannyj-pasodobl" tabindex="-1" aria-hidden="true">
+                <img class="tile__image" src="img/products/pasodobl.webp" width="480" height="480" loading="lazy" alt="">
+              </a>
+              <a class="tile__category" href="https://teaboom.ru/category-aromatizirovannyj-chaj">Ароматизированный черный чай</a>
+              <h3 class="tile__title"><a class="tile__link" href="https://teaboom.ru/product/chaj-chyornyj-aromatizirovannyj-pasodobl">Чай чёрный ароматизированный «Пасодобль»</a></h3>
+              <p class="tile__price">
+                <span class="tile__unit">100 г</span>
+                <span class="tile__current">404 ₽</span>
+              </p>
+              <button class="button button--small" type="button" data-add-to-cart>
+                <span data-add-to-cart-label>В корзину</span>
+              </button>
+            </article>
+          </li>
+          <li class="catalog__item">
+            <article class="tile">
+              <a class="tile__media" href="https://teaboom.ru/product/kofe-v-zyornah-aromatizirovannyj-shokoladnyj-apelsin" tabindex="-1" aria-hidden="true">
+                <img class="tile__image" src="img/products/kofe-shokoladnyj-apelsin.webp" width="480" height="480" loading="lazy" alt="">
+              </a>
+              <a class="tile__category" href="https://teaboom.ru/category-aromatizirovannyj-kofe-v-zernah">Ароматизированный кофе в зернах</a>
+              <h3 class="tile__title"><a class="tile__link" href="https://teaboom.ru/product/kofe-v-zyornah-aromatizirovannyj-shokoladnyj-apelsin">Кофе в зёрнах ароматизированный «Шоколадный Апельсин»</a></h3>
+              <p class="tile__price">
+                <span class="tile__unit">100 г</span>
+                <span class="tile__current">440 ₽</span>
+              </p>
+              <button class="button button--small" type="button" data-add-to-cart>
+                <span data-add-to-cart-label>В корзину</span>
+              </button>
+            </article>
+          </li>
+          <li class="catalog__item">
+            <article class="tile">
+              <a class="tile__media" href="https://teaboom.ru/product/chainik-iz-zharoprochnogo-stekla-800-ml-klyukva" tabindex="-1" aria-hidden="true">
+                <img class="tile__image" src="img/products/chajnik-klyukva.webp" width="480" height="480" loading="lazy" alt="">
+              </a>
+              <span class="tile__badge" aria-hidden="true">−30%</span>
+              <a class="tile__category" href="https://teaboom.ru/category-chajniki-steklyannie-bez-kolbi">Стеклянные чайники без колбы</a>
+              <h3 class="tile__title"><a class="tile__link" href="https://teaboom.ru/product/chainik-iz-zharoprochnogo-stekla-800-ml-klyukva">Чайник из жаропрочного стекла 800 мл «Клюква»</a></h3>
+              <p class="tile__price tile__price--sale">
+                <span class="tile__unit">1 шт</span>
+                <span class="tile__current">595 ₽</span>
+                <span class="visually-hidden">Старая цена:</span>
+                <s class="tile__old">854 ₽</s>
+              </p>
+              <button class="button button--small" type="button" data-add-to-cart>
+                <span data-add-to-cart-label>В корзину</span>
+              </button>
+            </article>
+          </li>
+          <li class="catalog__item">
+            <article class="tile">
+              <a class="tile__media" href="https://teaboom.ru/product/podstavka-podogrevatel-iz-zharoprochnogo-stekla-serdechki" tabindex="-1" aria-hidden="true">
+                <img class="tile__image" src="img/products/podstavka-serdechki.webp" width="480" height="480" loading="lazy" alt="">
+              </a>
+              <span class="tile__badge" aria-hidden="true">−43%</span>
+              <a class="tile__category" href="https://teaboom.ru/category-podstavki-podogrevateli-pod-chajniki">Подставки-подогреватели под чайники</a>
+              <h3 class="tile__title"><a class="tile__link" href="https://teaboom.ru/product/podstavka-podogrevatel-iz-zharoprochnogo-stekla-serdechki">Подставка-подогреватель из жаропрочного стекла «Сердечки»</a></h3>
+              <p class="tile__price tile__price--sale">
+                <span class="tile__unit">1 шт</span>
+                <span class="tile__current">273 ₽</span>
+                <span class="visually-hidden">Старая цена:</span>
+                <s class="tile__old">476 ₽</s>
+              </p>
+              <button class="button button--small" type="button" data-add-to-cart>
+                <span data-add-to-cart-label>В корзину</span>
+              </button>
+            </article>
+          </li>
+      </ul>
+      <p class="visually-hidden" role="status" data-cart-status></p>
+    </section>
+
+    <section class="container section about" aria-labelledby="about-title">
+      <div class="about__text">
+        <h2 class="section__title" id="about-title">О магазине</h2>
+        <p>
+          Интернет-магазин чая «Чайный Бум» — это настоящая находка как для ценителей, так и для
+          новичков, открывающих для себя всю палитру элитного китайского чая.
+        </p>
+        <p>
+          Мы располагаем собственными высокогорными чайными плантациями, на которых работают
+          профессионалы, прекрасно знающие своё дело. Мы до мелочей соблюдаем все правила сбора,
+          стандарты хранения и транспортировки. Наш чай проходит тщательный контроль качества
+          перед отправкой в Россию.
+        </p>
+        <p>
+          Не стоит оставлять без внимания и приятные добавки к чаю: китайская роза, ягоды годжи,
+          лаванда, белая хризантема и многие другие.
+        </p>
+      </div>
+      <blockquote class="about__quote">
+        <p class="about__quote-text">Лучше три дня не есть, чем один день не пить чая</p>
+        <footer class="about__quote-source">Китайская поговорка</footer>
+      </blockquote>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container site-footer__inner">
+      <section class="site-footer__col site-footer__col--wide">
+        <h2 class="site-footer__title">Контакты</h2>
+        <address class="site-footer__address">
+          Москва, ул. 1-я Боевская, д. 2/12, стр. 4, пом. 1/1<br>
+          <a class="site-footer__link" href="tel:+74951201551">+7 (495) 120-15-51</a>,
+          <a class="site-footer__link" href="tel:+74957967974">+7 (495) 796-79-74</a><br>
+          <a class="site-footer__link" href="mailto:info@teaboom.ru">info@teaboom.ru</a><br>
+          пн–пт с 10:00 до 19:00, сб–вс с 12:00 до 16:00
+        </address>
+        <ul class="site-footer__social">
+          <li><a class="site-footer__link" href="https://t.me/Teaboom">Telegram</a></li>
+          <li><a class="site-footer__link" href="https://vk.com/teaboom">ВКонтакте</a></li>
+          <li><a class="site-footer__link" href="https://www.ok.ru/teaboom">Одноклассники</a></li>
+        </ul>
+      </section>
+      <section class="site-footer__col">
+        <h2 class="site-footer__title">Компания</h2>
+        <ul class="site-footer__list">
+          <li><a class="site-footer__link" href="https://teaboom.ru/page/nashi-servisy">Наши сервисы</a></li>
+          <li><a class="site-footer__link" href="https://teaboom.ru/page/biznes-s-nami">Бизнес с нами</a></li>
+          <li><a class="site-footer__link" href="https://teaboom.ru/page/vakansii">Вакансии</a></li>
+        </ul>
+      </section>
+      <section class="site-footer__col">
+        <h2 class="site-footer__title">Документы</h2>
+        <ul class="site-footer__list">
+          <li><a class="site-footer__link" href="https://teaboom.ru/page/dogovor">Договор-оферта</a></li>
+          <li><a class="site-footer__link" href="https://teaboom.ru/page/sertifikaty">Сертификаты</a></li>
+          <li><a class="site-footer__link" href="https://teaboom.ru/pages">Статьи о чае</a></li>
+          <li><a class="site-footer__link" href="https://teaboom.ru/page/privacy-policy">Политика конфиденциальности</a></li>
+        </ul>
+      </section>
+      <section class="site-footer__col">
+        <h2 class="site-footer__title">Покупателям</h2>
+        <ul class="site-footer__list">
+          <li><a class="site-footer__link" href="https://teaboom.ru/shipping/">Доставка</a></li>
+          <li><a class="site-footer__link" href="https://teaboom.ru/payment/">Оплата</a></li>
+          <li><a class="site-footer__link" href="https://teaboom.ru/page/exchange-and-refund">Обмен и возврат</a></li>
+        </ul>
+      </section>
+    </div>
+    <p class="container site-footer__copy">© Teaboom.ru. Учебный макет в рамках тестового задания.</p>
+  </footer>
+
+  <script src="js/cart.js" defer></script>
+</body>
+</html>

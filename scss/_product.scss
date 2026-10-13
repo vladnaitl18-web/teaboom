@@ -1,0 +1,340 @@
+@use "tokens" as *;
+
+.product {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  grid-template-areas:
+    "head"
+    "media"
+    "buy"
+    "about"
+    "brew";
+  gap: 24px;
+  padding-bottom: 56px;
+
+  @include tablet {
+    grid-template-columns: minmax(0, 5fr) minmax(0, 6fr);
+    grid-template-rows: auto 1fr auto;
+    grid-template-areas:
+      "media head"
+      "media buy"
+      "about about"
+      "brew brew";
+    gap: 28px 32px;
+  }
+
+  @include desktop {
+    grid-template-columns: 540px minmax(0, 1fr);
+    grid-template-rows: auto auto 1fr auto;
+    grid-template-areas:
+      "media head"
+      "media buy"
+      "media about"
+      "brew about";
+    gap: 28px 72px;
+    padding-bottom: 96px;
+  }
+
+  &__media {
+    grid-area: media;
+    align-self: start;
+  }
+
+  // Wooden tea tray (chaban) with a sheet of paper the tea is laid on
+  &__tray {
+    position: relative;
+    padding: 12px;
+    border-radius: var(--radius-lg);
+    background-color: var(--color-wood);
+    background-image:
+      repeating-linear-gradient(
+        91deg,
+        rgba(255, 255, 255, 0.07) 0 2px,
+        transparent 2px 9px,
+        rgba(0, 0, 0, 0.09) 9px 11px,
+        transparent 11px 27px
+      ),
+      linear-gradient(140deg, #b98d5c, var(--color-wood) 42%, var(--color-wood-dark));
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.35),
+      inset 0 -2px 0 rgba(0, 0, 0, 0.35),
+      0 30px 44px -26px rgba(63, 41, 23, 0.75),
+      0 4px 10px rgba(63, 41, 23, 0.18);
+
+    @include tablet {
+      padding: 18px;
+    }
+  }
+
+  &__sheet {
+    display: block;
+    border-radius: 4px;
+    background-color: var(--color-sheet);
+    box-shadow:
+      0 0 0 1px rgba(40, 24, 12, 0.7),
+      0 0 0 4px rgba(40, 24, 12, 0.22),
+      inset 0 0 40px rgba(122, 84, 51, 0.12);
+    overflow: hidden;
+  }
+
+  // Multiply drops the photo's white backdrop onto the paper tone
+  &__image {
+    width: 100%;
+    aspect-ratio: 1;
+    object-fit: cover;
+    mix-blend-mode: multiply;
+  }
+
+  &__discount {
+    position: absolute;
+    top: 26px;
+    right: 26px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 58px;
+    height: 58px;
+    border-radius: 50%;
+    font-family: var(--font-display);
+    font-size: 19px;
+    font-weight: 500;
+    color: #fff;
+    background-color: var(--color-sale);
+    box-shadow:
+      0 0 0 3px var(--color-sheet),
+      0 6px 12px rgba(200, 50, 30, 0.35);
+
+    @include tablet {
+      top: 34px;
+      right: 34px;
+    }
+  }
+
+  &__origin {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 18px;
+    font-size: 13px;
+    color: var(--color-muted);
+  }
+
+  // Cinnabar seal stamp
+  &__seal {
+    display: grid;
+    place-items: center;
+    width: 30px;
+    height: 30px;
+    border-radius: 4px;
+    font-size: 18px;
+    line-height: 1;
+    color: #fff;
+    background-color: var(--color-sale);
+    box-shadow: inset 0 0 0 2px rgba(255, 255, 255, 0.35);
+    transform: rotate(-4deg);
+  }
+
+  &__head {
+    grid-area: head;
+  }
+
+  &__category {
+    display: inline-block;
+    padding: 4px 10px;
+    border: 1px solid rgba(62, 107, 82, 0.35);
+    border-radius: var(--radius);
+    font-size: 11px;
+    font-weight: 700;
+    line-height: 1.5;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: var(--color-jade);
+    background-color: rgba(62, 107, 82, 0.07);
+    transition:
+      color var(--transition),
+      background-color var(--transition);
+
+    @include hover {
+      color: #fff;
+      background-color: var(--color-jade);
+    }
+  }
+
+  &__title {
+    margin-top: 12px;
+    font-family: var(--font-display);
+    font-size: 34px;
+    font-weight: 600;
+    line-height: 1.1;
+    letter-spacing: 0.01em;
+    color: var(--color-ink);
+
+    @include tablet {
+      font-size: 38px;
+    }
+
+    @include desktop {
+      font-size: 56px;
+    }
+
+    &::after {
+      content: "";
+      display: block;
+      width: 64px;
+      height: 3px;
+      margin-top: 14px;
+      border-radius: 2px;
+      background-color: var(--color-gold-deep);
+    }
+  }
+
+  &__sku {
+    margin-top: 12px;
+    font-size: 13px;
+    color: var(--color-muted);
+    font-variant-numeric: tabular-nums;
+  }
+
+  &__buy {
+    grid-area: buy;
+    align-self: start;
+    display: grid;
+    gap: 20px;
+    padding: 18px 16px;
+    border: 1px solid var(--color-line);
+    border-top: 3px solid var(--color-wood);
+    border-radius: var(--radius-lg);
+    background-color: var(--color-surface);
+    box-shadow: var(--shadow-card);
+
+    @include desktop {
+      gap: 24px;
+      padding: 26px 28px 28px;
+    }
+  }
+
+  &__about {
+    grid-area: about;
+    position: relative;
+    padding: 22px 20px;
+    overflow: hidden;
+    isolation: isolate;
+
+    @include tablet {
+      padding: 26px 28px;
+    }
+
+    // Corner brackets, like a framed scroll
+    &::before,
+    &::after {
+      content: "";
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      border: 2px solid var(--color-wood-light);
+    }
+
+    &::before {
+      top: 0;
+      left: 0;
+      border-right: 0;
+      border-bottom: 0;
+    }
+
+    &::after {
+      right: 0;
+      bottom: 0;
+      border-top: 0;
+      border-left: 0;
+    }
+  }
+
+  // Oversized calligraphy watermark behind the description
+  &__about &__subtitle::before {
+    content: "茶" / "";
+    position: absolute;
+    top: -18px;
+    right: 12px;
+    z-index: -1;
+    font-family: "Songti SC", "STSong", "SimSun", serif;
+    font-size: 120px;
+    font-weight: 400;
+    line-height: 1;
+    letter-spacing: 0;
+    color: var(--color-wood);
+    opacity: 0.08;
+
+    @include tablet {
+      font-size: 170px;
+    }
+  }
+
+  &__subtitle {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-family: var(--font-display);
+    font-size: 19px;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--color-ink);
+
+    &::after {
+      content: "";
+      flex: 1;
+      height: 1px;
+      background: linear-gradient(90deg, var(--color-line), transparent);
+    }
+  }
+
+  &__text {
+    position: relative;
+    max-width: 60ch;
+    margin-top: 12px;
+
+    &--muted {
+      font-size: 13px;
+      color: var(--color-muted);
+    }
+  }
+
+  &__brew {
+    grid-area: brew;
+  }
+}
+
+.brew {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+  margin-top: 14px;
+
+  @include tablet {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  &__item {
+    padding: 12px 14px;
+    border: 1px solid var(--color-line);
+    border-bottom: 3px solid var(--color-wood-light);
+    border-radius: var(--radius);
+    background-color: var(--color-surface);
+  }
+
+  &__term {
+    font-size: 12px;
+    color: var(--color-muted);
+  }
+
+  &__value {
+    margin-top: 2px;
+    font-family: var(--font-display);
+    font-size: 19px;
+    font-weight: 500;
+    line-height: 1.3;
+    color: var(--color-wood-dark);
+    white-space: nowrap;
+  }
+}

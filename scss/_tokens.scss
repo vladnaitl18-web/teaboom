@@ -1,0 +1,65 @@
+// Breakpoints (mobile first)
+$bp-tablet: 640px;
+$bp-desktop: 1024px;
+
+@mixin tablet {
+  @media (min-width: $bp-tablet) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: $bp-desktop) {
+    @content;
+  }
+}
+
+@mixin from($width) {
+  @media (min-width: $width) {
+    @content;
+  }
+}
+
+@mixin hover {
+  @media (hover: hover) {
+    &:hover {
+      @content;
+    }
+  }
+}
+
+:root {
+  // Teaboom yellow and sale red; their graphite is swapped for a deep tea green
+  --color-ink: #1f3b2d;
+  --color-ink-deep: #142a1f;
+  --gradient-ink: linear-gradient(135deg, #34684f 0%, #1f3b2d 52%, #13261c 100%);
+  --color-cream: #f3ead6;
+  --color-gold: #f5d730;
+  --color-gold-deep: #d2b417;
+  --color-sale: #c8321e;
+
+  // Tea house palette: rice paper, wood, jade
+  --color-paper: #f4ecdc;
+  --color-sheet: #fbf6ea;
+  --color-surface: #fffdf7;
+  --color-line: #dccbac;
+  --color-text: #3a322b;
+  --color-muted: #81766a;
+  --color-wood: #7a5433;
+  --color-wood-dark: #3f2917;
+  --color-wood-light: #b08557;
+  --color-jade: #3e6b52;
+
+  --font-body: "Open Sans", -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  --font-display: "Oswald", "Arial Narrow", Arial, sans-serif;
+
+  --radius: 6px;
+  --radius-lg: 12px;
+  --gutter: 16px;
+  --shadow-card: 0 24px 40px -30px rgba(63, 41, 23, 0.6), 0 2px 6px rgba(63, 41, 23, 0.06);
+  --transition: 0.2s ease;
+
+  @include tablet {
+    --gutter: 24px;
+  }
+}
