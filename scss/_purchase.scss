@@ -87,8 +87,8 @@
   // Selected: deep green + Teaboom yellow
   &__input:checked + &__card {
     border-color: var(--color-ink);
-    background-color: var(--color-ink);
-    background-image: var(--gradient-ink);
+    background-color: var(--color-leaf);
+    background-image: var(--gradient-leaf);
     box-shadow:
       inset 0 -3px 0 var(--color-gold),
       0 10px 16px -10px rgba(31, 59, 45, 0.8);
@@ -214,10 +214,10 @@
   // Same inversion Teaboom uses on its cart controls
   @include hover {
     color: var(--color-gold);
-    background-color: var(--color-ink);
-    background-image: var(--gradient-ink);
+    background-color: var(--color-leaf);
+    background-image: var(--gradient-leaf);
     box-shadow:
-      0 3px 0 var(--color-ink-deep),
+      0 3px 0 var(--color-leaf-deep),
       0 14px 20px -12px rgba(31, 59, 45, 0.8);
   }
 

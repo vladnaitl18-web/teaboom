@@ -30,11 +30,13 @@ $bp-desktop: 1024px;
 
 :root {
   // Teaboom yellow and sale red; their graphite is swapped for a deep tea green
+  // --color-ink is for text, --color-leaf for filled green surfaces
   --color-ink: #2e6347;
-  --color-ink-deep: #1f4733;
+  --color-leaf: #43895f;
+  --color-leaf-deep: #2f6b4a;
   // Pale lime of Teaboom's own cart buttons
   --color-lime: #e6efc6;
-  --gradient-ink: linear-gradient(135deg, #4a8a66 0%, #2e6347 52%, #224c37 100%);
+  --gradient-leaf: linear-gradient(135deg, #62a67c 0%, #43895f 50%, #377751 100%);
   --color-cream: #f3ead6;
   --color-gold: #f5d730;
   --color-gold-deep: #d2b417;
