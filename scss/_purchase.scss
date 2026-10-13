@@ -78,7 +78,8 @@
   }
 
   &__item:hover &__card {
-    border-color: var(--color-wood);
+    border-color: var(--color-jade);
+    background-color: var(--color-lime);
     transform: translateY(-2px);
     box-shadow: 0 8px 14px -10px rgba(63, 41, 23, 0.6);
   }

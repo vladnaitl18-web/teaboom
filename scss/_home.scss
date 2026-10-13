@@ -245,7 +245,11 @@
 
   &__icon {
     flex-shrink: 0;
-    color: var(--color-jade);
+    box-sizing: content-box;
+    padding: 10px;
+    border-radius: 50%;
+    color: var(--color-ink);
+    background-color: var(--color-lime);
   }
 
   &__text {
@@ -410,7 +414,7 @@
     padding: 16px 20px;
     background-image:
       radial-gradient(circle at 26% 50%, #fff 0, rgba(255, 255, 255, 0) 55%),
-      linear-gradient(135deg, rgba(62, 107, 82, 0.16), rgba(62, 107, 82, 0) 60%);
+      linear-gradient(135deg, var(--color-lime), rgba(230, 239, 198, 0) 60%);
 
     @include tablet {
       flex-direction: column;
@@ -418,7 +422,7 @@
       padding: 24px 20px 22px;
       background-image:
         radial-gradient(circle at 50% 42%, #fff 0, rgba(255, 255, 255, 0) 62%),
-        linear-gradient(160deg, rgba(62, 107, 82, 0.18), rgba(62, 107, 82, 0) 55%);
+        linear-gradient(160deg, var(--color-lime), rgba(230, 239, 198, 0) 55%);
     }
 
     // Cinnabar seal in the corner
